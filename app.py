@@ -13,5 +13,7 @@ with st.form("car_form"):
     price = st.number_input("Prix actuel ($)", min_value=0, step=100)
 
     submitted = st.form_submit_button("Prédire")
-    if submitted:
-        st.write(f"Année : {year}, Marque : {manufacturer}, Kilométrage : {odometer}, Prix : ${price}")
+
+if submitted:
+    st.subheader("Résultat de la prédiction")
+    st.info("Prix prédit : à venir")
