@@ -25,22 +25,22 @@ def prepare_input(year, manufacturer, odometer, fuel, transmission, title_status
     }
 
     for m in options['manufacturers']:
-        data[f'manufacturer_{m}'] = manufacturer == m
+        data[f'manufacturer_{m}'] = int(manufacturer == m)
 
     for f in options['fuels']:
-        data[f'fuel_{f}'] = fuel == f
+        data[f'fuel_{f}'] = int(fuel == f)
 
     for t in options['transmissions']:
-        data[f'transmission_{t}'] = transmission == t
+        data[f'transmission_{t}'] = int(transmission == t)
 
     for ts in options['title_status']:
-        data[f'title_status_{ts}'] = title_status == ts
+        data[f'title_status_{ts}'] = int(title_status == ts)
 
     for tp in options['types']:
-        data[f'type_{tp}'] = car_type == tp
+        data[f'type_{tp}'] = int(car_type == tp)
 
     for s in options['states']:
-        data[f'state_{s}'] = state == s
+        data[f'state_{s}'] = int(state == s)
 
     return pd.DataFrame([data])
 
