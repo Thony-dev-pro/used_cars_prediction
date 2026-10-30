@@ -42,13 +42,14 @@ def prepare_input(year, manufacturer, odometer, fuel, transmission, title_status
     for s in options['states']:
         data[f'state_{s}'] = int(state == s)
 
+    print(pd.DataFrame([data]))
     return pd.DataFrame([data])
 
 
 st.title("Prédition voiture d'occasion")
 
 with st.form("car_form"):
-    year = st.number_input("Année de fabrication", min_value=1900, max_value=2026, step=1)
+    year = st.number_input("Année de fabrication", min_value=1990, max_value=2026, step=1)
     manufacturer = st.selectbox("Marque du véhicule", options["manufacturers"])
     odometer = st.number_input("Kilométrage (miles)", min_value=0, step=1000)
     fuel = st.selectbox("Carburant", options["fuels"])
